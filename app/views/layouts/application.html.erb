@@ -3,13 +3,46 @@
   <head>
     <title>Blog</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  	<section class="hero is-primary  is-medium">
+	  <!-- head: will stick at the top -->
+	  <div class="hero-head">
+	    <nav class="navbar">
+	      <div class="container">
+	        <div class="navbar-brand">
+	          <%= link_to 'All Blogs', root_path, class: "navbar-item  button is-link is-focused title is-5 has-text-white" %>
+	          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	          </span>
+	        </div>
+	        <div id="navbarMenuHeroA" class="navbar-menu">
+	          <div class="navbar-end">
+	            <%= link_to "Create Your Blog", new_post_path, class:"navbar-item button is-link is-focused title is-5 has-text-white" %>
+	          </div>
+	        </div>
+	      </div>
+	    </nav>
+	  </div>
+
+	  <!--  content: will be in the middle -->
+	  <div class="hero-body" style="background-image: url(/assets/img.jpg); height: 100px; width: 1500px;background-repeat:no-repeat">
+	    <div class="container has-text-centered">
+	      <h1 class="title is-1 is-spaced has-text-black">
+	        <%= yield :page_title %>
+	      </h1>
+	    </div>
+	  </div>
+	</section>
+	
+	<div style="background-image: url(/assets/img4.jpg); height: 1000px; width: 1500px; border: 1px solid black;"> <%= yield %></div>
+    	
+	
   </body>
 </html>
